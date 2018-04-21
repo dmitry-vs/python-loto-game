@@ -57,3 +57,43 @@
 модуль random: http://docs.python.org/3/library/random.html
 
 """
+
+# классы, которые используются в игре: Game, Card, Lotonum, Keg
+
+# Keg - создать случайно, получить значение, получить строку
+# Card - создать случайно, зачеркнуть номер, получить строку
+# Game - создать игру, запустить игру, завершить игру по одному из возможных событий
+
+import random
+
+
+def generate_unique_numbers(count, minbound, maxbound):
+    if count > maxbound - minbound + 1:
+        raise ValueError('Incorrect input parameters')
+    ret = []
+    while len(ret) < count:
+        new = random.randint(minbound, maxbound)
+        if new not in ret:
+            ret.append(new)
+    return ret
+
+
+class Keg:
+    __num = None
+
+    def __init__(self):
+        self.__num = random.randint(1, 90)
+
+    @property
+    def num(self):
+        return self.__num
+
+    def __str__(self):
+        return str(self.__num)
+
+
+class Card:
+    # 3 строки по 9 клеток
+    # в каждой строке по 5 случайных цифр, расположенных по возрастанию
+    # все цифры в карточке уникальны
+    pass
