@@ -2,6 +2,8 @@ import pytest
 
 from loto import generate_unique_numbers
 
+# tests for: generate_unique_numbers
+
 testlen = 80
 testmin = 0
 testmax = 100
